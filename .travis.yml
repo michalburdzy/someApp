@@ -1,10 +1,12 @@
+language: generic
+
 sudo: required
 
 services:
   - docker
 
 before_install:
-  - docker build -t michalburdzy/someApp -f Dockerfile.dev .
+  - docker build -t michalburdzy/someapp -f Dockerfile.dev .
 
 script:
-  - docker run michalburdzy/someApp -e CI=true npm run test
+  - docker run -e CI=true michalburdzy/someapp npm run test
